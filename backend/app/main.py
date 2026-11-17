@@ -12,7 +12,7 @@ from .questions import DISCLAIMER, question_for
 load_dotenv()
 
 app = FastAPI(title="SchemeSaathi API", version="0.1.0")
-origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", "http://localhost:5173").split(",") if o.strip()]
+origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:5174").split(",") if o.strip()]
 app.add_middleware(CORSMiddleware, allow_origins=origins, allow_methods=["*"], allow_headers=["*"])
 
 SCHEMES = engine.load_schemes()

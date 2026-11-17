@@ -22,7 +22,7 @@ cd backend
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-cp .env.example .env               # optional: add OPENROUTER_API_KEY + EXTRACT_MODEL
+cp .env.example .env               # optional: add GROQ_API_KEY + EXTRACT_MODEL
 uvicorn app.main:app --reload      # http://localhost:8000/docs
 pytest
 ```
@@ -47,7 +47,7 @@ Set `VITE_USE_MOCK=true` to demo the UI without the backend.
 Statuses: `eligible`, `needs_info` (nothing failed, some fields unknown), `near_miss` (exactly one condition failed, see `unmet`).
 
 ## Deploy
-- **Backend on Render:** New > Blueprint > pick this repo (uses `render.yaml`). Set `OPENROUTER_API_KEY`, `EXTRACT_MODEL` and
+- **Backend on Render:** New > Blueprint > pick this repo (uses `render.yaml`). Set `GROQ_API_KEY`, `EXTRACT_MODEL` and
   `ALLOWED_ORIGINS` (your Vercel URL, comma-separated if several) in the Render dashboard.
 - **Frontend on Vercel:** import this repo, set **Root Directory = frontend**, add env `VITE_API_BASE` = your Render URL and `VITE_USE_MOCK=false`.
 - Free Render services sleep when idle: open `/health` a few minutes before any demo.

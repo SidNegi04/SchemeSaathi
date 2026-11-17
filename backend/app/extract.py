@@ -1,6 +1,6 @@
 """Turn a free-text message (English or Hindi) into profile fields.
 
-extract_with_llm uses OpenRouter if OPENROUTER_API_KEY is set; otherwise (or on any error)
+extract_with_llm uses Groq if GROQ_API_KEY is set; otherwise (or on any error)
 extract_fallback uses simple regexes so the app and tests still work offline.
 """
 import json
@@ -66,18 +66,20 @@ def extract_fallback(message: str) -> dict:
 
 
 async def extract_with_llm(message: str) -> Optional[dict]:
-    key, model = os.getenv("OPENROUTER_API_KEY"), os.getenv("EXTRACT_MODEL")
-    if not key or not model:
+    key = os.getenv("GROQ_API_KEY")
+    model = os.getenv("EXTRACT_MODEL") or "llama-3.3-70b-versatile"
+    if not key:
         return None
     import httpx  # imported here so the engine and tests need no web libraries
     try:
         async with httpx.AsyncClient(timeout=20) as client:
             resp = await client.post(
-                "https://openrouter.ai/api/v1/chat/completions",
+                "https://api.groq.com/openai/v1/chat/completions",
                 headers={"Authorization": f"Bearer {key}"},
                 json={
                     "model": model,
                     "temperature": 0,
+                    "response_format": {"type": "json_object"},
                     "messages": [
                         {"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user", "content": message},

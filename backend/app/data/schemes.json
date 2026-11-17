@@ -1,0 +1,95 @@
+[
+  {
+    "id": "pm-kisan",
+    "name": "PM-KISAN",
+    "category": "agriculture",
+    "benefit": "Income support of Rs 6,000 per year, paid in three instalments to the bank account",
+    "conditions": [
+      {"field": "occupation", "op": "eq", "value": "farmer", "label": "You are a farmer"},
+      {"field": "land_acres", "op": "gt", "value": 0, "label": "Your family owns cultivable land"}
+    ],
+    "documents": ["Aadhaar", "Land ownership record", "Bank account details"],
+    "how_to_apply": "Register on the PM-KISAN portal or through your nearest CSC or agriculture office.",
+    "official_url": "https://pmkisan.gov.in",
+    "priority": 90,
+    "verified": false,
+    "last_checked": null
+  },
+  {
+    "id": "pmfby",
+    "name": "PM Fasal Bima Yojana",
+    "category": "agriculture",
+    "benefit": "Crop insurance against loss from natural calamities, pests and disease",
+    "conditions": [
+      {"field": "occupation", "op": "eq", "value": "farmer", "label": "You cultivate crops"}
+    ],
+    "documents": ["Aadhaar", "Bank account details", "Land record or sowing declaration"],
+    "how_to_apply": "Apply through your bank, a CSC or the PMFBY portal before the crop-season cut-off date.",
+    "official_url": "https://pmfby.gov.in",
+    "priority": 80,
+    "verified": false,
+    "last_checked": null
+  },
+  {
+    "id": "kcc",
+    "name": "Kisan Credit Card",
+    "category": "agriculture",
+    "benefit": "Low-interest, flexible credit for farming needs",
+    "conditions": [
+      {"field": "occupation", "op": "eq", "value": "farmer", "label": "You are a farmer"}
+    ],
+    "documents": ["ID proof", "Address proof", "Land record or tenancy proof", "Passport-size photo"],
+    "how_to_apply": "Apply at your bank branch or cooperative bank.",
+    "official_url": null,
+    "priority": 70,
+    "verified": false,
+    "last_checked": null
+  },
+  {
+    "id": "atal-pension",
+    "name": "Atal Pension Yojana",
+    "category": "social-security",
+    "benefit": "Fixed monthly pension after age 60, based on the contribution you choose",
+    "conditions": [
+      {"field": "age", "op": "gte", "value": 18, "label": "You are at least 18 years old"},
+      {"field": "age", "op": "lte", "value": 40, "label": "You are 40 years old or younger"},
+      {"field": "has_bank_account", "op": "is_true", "label": "You have a bank account"}
+    ],
+    "documents": ["Aadhaar", "Bank account details", "Mobile number"],
+    "how_to_apply": "Apply at your bank branch or through your bank's app.",
+    "official_url": null,
+    "priority": 50,
+    "verified": false,
+    "last_checked": null
+  },
+  {
+    "id": "sukanya",
+    "name": "Sukanya Samriddhi Yojana",
+    "category": "women-and-child",
+    "benefit": "Savings account for a girl child with a government-set interest rate and tax benefits",
+    "conditions": [
+      {"field": "has_girl_child_under_10", "op": "is_true", "label": "You have a girl child under 10 years old"}
+    ],
+    "documents": ["Girl child's birth certificate", "Parent or guardian ID proof", "Address proof"],
+    "how_to_apply": "Open the account at a post office or an authorised bank.",
+    "official_url": null,
+    "priority": 60,
+    "verified": false,
+    "last_checked": null
+  },
+  {
+    "id": "mudra",
+    "name": "PM Mudra Yojana",
+    "category": "business",
+    "benefit": "Collateral-free loans for small non-farm businesses",
+    "conditions": [
+      {"field": "occupation", "op": "eq", "value": "small_business", "label": "You run a small business"}
+    ],
+    "documents": ["ID proof", "Address proof", "Business proof", "Recent bank statements"],
+    "how_to_apply": "Apply at a bank, NBFC or microfinance institution, or through the Mudra portal.",
+    "official_url": "https://www.mudra.org.in",
+    "priority": 65,
+    "verified": false,
+    "last_checked": null
+  }
+]

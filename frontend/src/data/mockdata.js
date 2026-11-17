@@ -1,0 +1,101 @@
+// ⚠️ ALL PLACEHOLDER DATA — to be replaced with API calls
+
+export const SAMPLE_PROFILE = {
+  name: "Ramesh Kumar",
+  state: "Bihar",
+  age: 42,
+  gender: "male",
+  occupation: "farmer",
+  annual_income: 120000,
+  land_acres: 2,
+  category: "obc",
+  has_bank_account: true,
+  has_girl_child_under_10: false,
+};
+
+export const SAMPLE_SCHEMES = [
+  { id: "pm-kisan", name: "PM-KISAN", category: "agriculture",
+    benefit: "Income support of ₹6,000 per year, paid in three instalments directly to the bank account.",
+    status: "eligible", why_matched: ["You are a farmer", "Your family owns cultivable land"],
+    unmet: [], missing_fields: [],
+    documents: ["Aadhaar", "Land ownership record", "Bank account details"],
+    how_to_apply: "Register on the PM-KISAN portal or through your nearest CSC or agriculture office.",
+    official_url: "https://pmkisan.gov.in", verified: false },
+  { id: "pmfby", name: "PM Fasal Bima Yojana", category: "agriculture",
+    benefit: "Crop insurance against loss from natural calamities, pests and disease.",
+    status: "eligible", why_matched: ["You cultivate crops"], unmet: [], missing_fields: [],
+    documents: ["Aadhaar", "Bank account details", "Land record"],
+    how_to_apply: "Apply through your bank, a CSC or the PMFBY portal before the crop-season cut-off date.",
+    official_url: "https://pmfby.gov.in", verified: false },
+  { id: "kcc", name: "Kisan Credit Card", category: "agriculture",
+    benefit: "Low-interest, flexible credit for farming needs.",
+    status: "eligible", why_matched: ["You are a farmer"], unmet: [], missing_fields: [],
+    documents: ["ID proof", "Address proof", "Land record", "Photo"],
+    how_to_apply: "Apply at your bank branch or cooperative bank.",
+    official_url: null, verified: false },
+  { id: "atal-pension", name: "Atal Pension Yojana", category: "social-security",
+    benefit: "Fixed monthly pension after age 60, based on the contribution you choose.",
+    status: "needs_info", why_matched: ["You are at least 18 years old"], unmet: [],
+    missing_fields: ["has_bank_account"],
+    documents: ["Aadhaar", "Bank account details", "Mobile number"],
+    how_to_apply: "Apply at your bank branch or through your bank's app.",
+    official_url: null, verified: false },
+  { id: "sukanya", name: "Sukanya Samriddhi Yojana", category: "women-and-child",
+    benefit: "Savings account for a girl child with a government-set interest rate and tax benefits.",
+    status: "near_miss", why_matched: [], unmet: ["You have a girl child under 10 years old"],
+    missing_fields: [],
+    documents: ["Girl child's birth certificate", "Parent or guardian ID proof", "Address proof"],
+    how_to_apply: "Open the account at a post office or an authorised bank.",
+    official_url: null, verified: false },
+  { id: "mudra", name: "PM Mudra Yojana", category: "business",
+    benefit: "Collateral-free loans for small non-farm businesses.",
+    status: "needs_info", why_matched: [], unmet: [], missing_fields: ["occupation"],
+    documents: ["ID proof", "Address proof", "Business proof", "Bank statements"],
+    how_to_apply: "Apply at a bank, NBFC or through the Mudra portal.",
+    official_url: "https://www.mudra.org.in", verified: false },
+];
+
+export const ALL_SCHEMES = [
+  ...SAMPLE_SCHEMES,
+  { id: "nsp-scholarship", name: "National Scholarship Portal", category: "education",
+    benefit: "Scholarships for SC/ST/OBC/Minority students from Class 1 to PhD.",
+    status: null, why_matched: [], unmet: [], missing_fields: [],
+    documents: ["Aadhaar", "Income certificate", "Caste certificate", "Bank details"],
+    how_to_apply: "Apply on the National Scholarship Portal before the deadline.",
+    official_url: "https://scholarships.gov.in", verified: false },
+  { id: "standup-india", name: "Stand-Up India", category: "business",
+    benefit: "Loans from ₹10 lakh to ₹1 crore for SC/ST and women entrepreneurs.",
+    status: null, why_matched: [], unmet: [], missing_fields: [],
+    documents: ["ID proof", "Business plan", "Caste/gender proof", "Bank statements"],
+    how_to_apply: "Apply through the Stand-Up India portal or your bank.",
+    official_url: "https://www.standupmitra.in", verified: false },
+  { id: "pmay", name: "Pradhan Mantri Awas Yojana", category: "social-security",
+    benefit: "Financial assistance for building or buying a pucca house.",
+    status: null, why_matched: [], unmet: [], missing_fields: [],
+    documents: ["Aadhaar", "Income proof", "Land documents"],
+    how_to_apply: "Apply via your local municipal office or the PMAY portal.",
+    official_url: "https://pmaymis.gov.in", verified: false },
+];
+
+export const CATEGORIES = [
+  { id: "all", label: "All Schemes" },
+  { id: "agriculture", label: "Agriculture" },
+  { id: "education", label: "Education" },
+  { id: "business", label: "Business" },
+  { id: "women-and-child", label: "Women & Child" },
+  { id: "social-security", label: "Social Security" },
+];
+
+export const STATS = [
+  { label: "Schemes Catalogued", value: "1,200+", note: "Illustrative" },
+  { label: "Citizens Assisted", value: "75,000+", note: "Illustrative" },
+  { label: "States Covered", value: "28", note: "Illustrative" },
+  { label: "Match Accuracy", value: "94%", note: "Illustrative" },
+];
+
+export const SUGGESTED_PROMPTS = [
+  "I am a farmer in Bihar.",
+  "I am a college student looking for scholarships.",
+  "I run a small business in Pune.",
+  "I want to know about pension schemes.",
+];

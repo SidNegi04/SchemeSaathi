@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  /* Official Govt Colors */
+  --color-gov-blue: #0b3d91;
+  --color-gov-blue-dark: #082b66;
+  --color-gov-blue-light: #e6f0fa;
+  
+  --color-gov-saffron: #ff9933;
+  --color-gov-green: #138808;
+  
+  --color-gov-bg: #f0f4f8;
+  --color-gov-border: #cbd5e1;
+  
+  --color-gov-text: #1e293b;
+  --color-gov-text-muted: #475569;
+
+  --font-sans: "Inter", Arial, sans-serif;
+  --font-display: "Instrument Serif", serif;
+}
+
+html, body, #root { height: 100%; }
+body {
+  @apply bg-gov-bg text-gov-text font-sans;
+}
+
+/* 1. BACKGROUND IMAGE LAYER */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  /* Yahan apni image ka path check karo */
+  background-image: url("/src/assets/bg.jpg"); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* 2. OVERLAY (Image ke upar white color ka patla layer) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  /* 0.85 se 0.65 kar diya (Image zyada dikhegi) */
+  background: rgba(240, 244, 248, 0.65); 
+}
+/* 3. COMPONENT CLASSES */
+.card {
+  @apply rounded-md border border-gov-border bg-white transition-colors duration-200 shadow-sm;
+}
+.card:hover {
+  @apply border-gov-blue;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded bg-gov-blue px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-gov-blue-dark active:scale-95;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded border border-gov-blue bg-white px-6 py-2.5 text-sm font-semibold text-gov-blue transition hover:bg-gov-blue-light active:scale-95;
+}
+
+.btn-saffron {
+  @apply inline-flex items-center justify-center gap-2 rounded bg-gov-saffron px-6 py-2.5 text-sm font-semibold text-white transition hover:opacity-90 active:scale-95;
+}
+
+.input {
+  @apply w-full rounded border border-gov-border bg-white px-4 py-2 text-sm text-gov-text placeholder:text-gov-text-muted focus:border-gov-blue focus:outline-none focus:ring-1 focus:ring-gov-blue;
+}

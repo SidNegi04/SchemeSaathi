@@ -18,7 +18,7 @@ const T = {
     error: "Sorry, something went wrong connecting to the server. Please try again.",
     tryThese: "Try one of these:",
     starters: [
-      "I am a farmer in Bihar with 2 acres of land.",
+      "I am a farmer.",
       "I run a small shop in Delhi and I am 30 years old.",
       "I live in Rajasthan and have a 6-year-old daughter.",
       "I am 28 and work a private job in Maharashtra.",
@@ -37,7 +37,7 @@ const T = {
     error: "क्षमा करें, सर्वर से जुड़ने में समस्या हुई। कृपया दोबारा कोशिश करें।",
     tryThese: "इनमें से कोई चुनें:",
     starters: [
-      "मैं बिहार का किसान हूँ और मेरे पास 2 एकड़ ज़मीन है।",
+      "मैं एक किसान हूँ।",
       "मेरी दिल्ली में छोटी दुकान है और मेरी उम्र 30 साल है।",
       "मैं राजस्थान में रहता हूँ और मेरी 6 साल की बेटी है।",
       "मेरी उम्र 28 साल है और मैं महाराष्ट्र में नौकरी करता हूँ।",

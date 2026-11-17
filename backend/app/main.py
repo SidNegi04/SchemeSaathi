@@ -31,6 +31,30 @@ def _run_match(profile: dict, lang: str) -> dict:
     return out
 
 
+YES = {"yes", "y", "yeah", "yep", "haan", "han", "ha", "हाँ", "हां", "हा", "जी", "जी हाँ", "जी हां", "है"}
+NO = {"no", "n", "nope", "nahi", "nahin", "na", "नहीं", "नही", "ना", "नहीं है"}
+BOOL_FIELDS = {"has_bank_account", "has_girl_child_under_10"}
+NUM_FIELDS = {"age": int, "annual_income": int, "land_acres": float}
+
+
+def _answer_to_asked(message: str, field):
+    """If the message is a bare answer (yes/no or a number) to the question we just asked, map it to that field."""
+    if not field:
+        return {}
+    t = message.strip().lower().strip(".!?, ")
+    if field in BOOL_FIELDS:
+        if t in YES:
+            return {field: True}
+        if t in NO:
+            return {field: False}
+    if field in NUM_FIELDS:
+        try:
+            return {field: NUM_FIELDS[field](float(t.replace(",", "")))}
+        except ValueError:
+            pass
+    return {}
+
+
 @app.get("/health")
 def health():
     return {"status": "ok", "schemes_loaded": len(SCHEMES)}
@@ -57,8 +81,14 @@ async def extract_profile(req: ExtractRequest):
 @app.post("/chat")
 async def chat(req: ExtractRequest):
     """One call for the frontend: read the message, update the profile, return matches + next question."""
-    found, source = await extract(req.message)
-    merged = _profile_dict(Profile(**{**_profile_dict(req.profile), **found}))
+    current = _profile_dict(req.profile)
+    asked = engine.match(current, SCHEMES).get("ask_next_field")
+    direct = _answer_to_asked(req.message, asked)
+    if direct:
+        found, source = direct, "direct"
+    else:
+        found, source = await extract(req.message)
+    merged = _profile_dict(Profile(**{**current, **found}))
     out = _run_match(merged, req.lang)
     out["extracted_by"] = source
     return out

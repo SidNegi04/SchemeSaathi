@@ -40,7 +40,7 @@
     ],
     "documents": ["ID proof", "Address proof", "Land record or tenancy proof", "Passport-size photo"],
     "how_to_apply": "Apply at your bank branch or cooperative bank.",
-    "official_url": null,
+    "official_url": "https://pmkisan.gov.in",
     "priority": 70,
     "verified": false,
     "last_checked": null
@@ -57,7 +57,7 @@
     ],
     "documents": ["Aadhaar", "Bank account details", "Mobile number"],
     "how_to_apply": "Apply at your bank branch or through your bank's app.",
-    "official_url": null,
+    "official_url": "https://www.jansuraksha.gov.in",
     "priority": 50,
     "verified": false,
     "last_checked": null
@@ -72,7 +72,7 @@
     ],
     "documents": ["Girl child's birth certificate", "Parent or guardian ID proof", "Address proof"],
     "how_to_apply": "Open the account at a post office or an authorised bank.",
-    "official_url": null,
+    "official_url": "https://www.indiapost.gov.in",
     "priority": 60,
     "verified": false,
     "last_checked": null
